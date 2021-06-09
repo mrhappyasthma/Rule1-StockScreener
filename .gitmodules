@@ -1,0 +1,3 @@
+[submodule "IsThisStockGood"]
+	path = IsThisStockGood
+	url = https://github.com/mrhappyasthma/IsThisStockGood
