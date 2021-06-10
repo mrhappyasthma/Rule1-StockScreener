@@ -1,6 +1,12 @@
 # Rule1-StockScreener
 Scripts to populate a MySQL database with Rule #1 screened stocks.
 
+## Stocklists
+
+Any stock lists that you want to query should be placed in the `csv/` subdirectory.
+
+For instance, this repository maintains a S&P 500 list in `csv/s&p.csv`.
+
 ## Populate the mySQL database
 
 You will need to do this at least once, to initially populate the database. You may also want to run it periodically (monthly, once-per-quarter, annually, etc), depending on how fresh you want the data. (Most of the data does not change more than once per quarter or even annually, so it does not need to be refreshed too often.)
