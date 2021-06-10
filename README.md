@@ -3,7 +3,7 @@ Scripts to populate a MySQL database with Rule #1 screened stocks.
 
 ## Stocklists
 
-Any stock lists that you want to query should be placed in the `csv/` subdirectory.
+Any stock lists that you want to query should be CSV (comma-separated-value) files and should be placed in the `csv/` subdirectory.
 
 For instance, this repository maintains a S&P 500 list in `csv/s&p.csv`.
 
