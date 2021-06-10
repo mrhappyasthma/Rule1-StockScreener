@@ -115,5 +115,5 @@ print("Creating table...")
 table_name = 'stocks'
 createTable(table_name)
 print("Adding stocks...")
-addStocksToTableFromCSVFile(table_name, 'csvs/s&p.csv')
+addStocksToTableFromCSVFile(table_name, 'csv/s&p.csv')
 print("Records inserted!")
