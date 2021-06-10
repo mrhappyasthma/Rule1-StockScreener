@@ -107,13 +107,15 @@ def addStocksToTableFromCSVFile(table_name, csv_filename):
       mydb.commit()
 
 
-print("Connecting to database...")
-mydb = connectToMySQLUsingRootLogin()
-mycursor = mydb.cursor(buffered=True)
-selectOrCreateDatabase(mycursor, 'isthisstockgood')
-print("Creating table...")
-table_name = 'stocks'
-createTable(table_name)
-print("Adding stocks...")
-addStocksToTableFromCSVFile(table_name, 'csv/s&p.csv')
-print("Records inserted!")
+if __name__ == "__main__":
+  print("Connecting to database...")
+  mydb = connectToMySQLUsingRootLogin()
+  mycursor = mydb.cursor(buffered=True)
+  selectOrCreateDatabase(mycursor, 'isthisstockgood')
+  print("Creating table...")
+  table_name = 'stocks'
+  createTable(table_name)
+  print("Adding stocks...")
+  filename = sys.argv[1] if len(sys.argv) == 2 else 's&p.csv'
+  addStocksToTableFromCSVFile(table_name, 'csv/' + filename)
+  print("Records inserted!")
