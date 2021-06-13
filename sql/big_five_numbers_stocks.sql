@@ -4,7 +4,7 @@
 # This can be used as a screener to find stocks for you watch list.
 #
 # NOTE: This query does not take the current stock price into account.
-SELECT stocks.ticker, stocks.current_price, stocks.margin_of_safety_price FROM isthisstockgood.stocks
+SELECT stocks.ticker, stocks.name, stocks.current_price, stocks.margin_of_safety_price FROM isthisstockgood.stocks
 WHERE (stocks.roic_1 IS NOT NULL AND stocks.roic_1 >= 10)
 AND (stocks.roic_3 IS NOT NULL AND stocks.roic_3 >= 10)
 AND (stocks.roic_5 IS NOT NULL AND stocks.roic_5 >= 10)

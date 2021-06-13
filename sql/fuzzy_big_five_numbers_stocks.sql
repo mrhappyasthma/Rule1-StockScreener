@@ -8,7 +8,7 @@
 #
 # NOTE2: This query does not take the current stock price into account.
 
-SELECT stocks.ticker FROM isthisstockgood.stocks
+SELECT stocks.ticker, stocks.name FROM isthisstockgood.stocks
 WHERE (stocks.roic_1 >= 5 OR stocks.roic_1 IS NULL)
 AND (stocks.roic_3 >= 5 OR stocks.roic_3 IS NULL)
 AND (stocks.roic_5 >= 5 OR stocks.roic_5 IS NULL)

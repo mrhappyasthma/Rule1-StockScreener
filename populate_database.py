@@ -24,7 +24,7 @@ def insertDataIntoTableForTicker(mycursor, table_name, ticker):
   if not data:
     print("Error fetching data for ticker: " + ticker)
     return
-  mycursor.execute("INSERT INTO " + table_name + " (ticker) VALUES ('" + ticker + "')")
+  mycursor.execute('INSERT INTO ' + table_name + ' (ticker, name) VALUES ("' + ticker + '", "' + data.get('name', "NULL") + '")')
   setValuesForFieldRangeWithName(mycursor, table_name, ticker, 'roic', data.get('roic', []))
   setValuesForFieldRangeWithName(mycursor, table_name, ticker, 'eps', data.get('eps', []))
   setValuesForFieldRangeWithName(mycursor, table_name, ticker, 'sales', data.get('sales', []))
