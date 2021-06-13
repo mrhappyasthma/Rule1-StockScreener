@@ -9,7 +9,7 @@ from IsThisStockGood.src.DataFetcher import fetchDataForTickerSymbol
 
 
 def setValueForFieldWithName(mycursor, table_name, ticker, field, value):
-  mycursor.execute("UPDATE " + table_name + " SET " + field + "=" + str(value) + " WHERE name = '" + ticker + "'")
+  mycursor.execute("UPDATE " + table_name + " SET " + field + "=" + str(value) + " WHERE ticker = '" + ticker + "'")
 
 
 def setValuesForFieldRangeWithName(mycursor, table_name, ticker, field, values):
@@ -24,7 +24,7 @@ def insertDataIntoTableForTicker(mycursor, table_name, ticker):
   if not data:
     print("Error fetching data for ticker: " + ticker)
     return
-  mycursor.execute("INSERT INTO " + table_name + " (name) VALUES ('" + ticker + "')")
+  mycursor.execute("INSERT INTO " + table_name + " (ticker) VALUES ('" + ticker + "')")
   setValuesForFieldRangeWithName(mycursor, table_name, ticker, 'roic', data.get('roic', []))
   setValuesForFieldRangeWithName(mycursor, table_name, ticker, 'eps', data.get('eps', []))
   setValuesForFieldRangeWithName(mycursor, table_name, ticker, 'sales', data.get('sales', []))
@@ -68,7 +68,8 @@ def selectOrCreateDatabase(mycursor, database_name):
 def createTable(table_name):
   """Create the stocks table"""
   mycursor.execute("DROP TABLE IF EXISTS " + table_name)
-  mycursor.execute("CREATE TABLE " + table_name + " (name VARCHAR(255) PRIMARY KEY,"
+  mycursor.execute("CREATE TABLE " + table_name + " (ticker VARCHAR(255) PRIMARY KEY,"
+                                                  "name VARCHAR(255),"
                                                   "roic_1 FLOAT,"
                                                   "roic_3 FLOAT,"
                                                   "roic_5 FLOAT,"
