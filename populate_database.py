@@ -103,6 +103,7 @@ def addStocksToTableFromCSVFile(table_name, csv_filename):
   with open(csv_filename, 'r') as stock_list:
     csv_reader = reader(stock_list)
     for row in csv_reader:
+      print(row[0])
       insertDataIntoTableForTicker(mycursor, table_name, row[0])
       mydb.commit()
 
