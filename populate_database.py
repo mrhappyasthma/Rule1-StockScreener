@@ -38,6 +38,7 @@ def insertDataIntoTableForTicker(mycursor, table_name, ticker):
   setValueForFieldWithName(mycursor, table_name, ticker, 'margin_of_safety_price', data.get('margin_of_safety_price', "NULL"))
   setValueForFieldWithName(mycursor, table_name, ticker, 'sticker_price', data.get('sticker_price', "NULL"))
   setValueForFieldWithName(mycursor, table_name, ticker, 'current_price', data.get('current_price', "NULL"))
+  setValueForFieldWithName(mycursor, table_name, ticker, 'payback_time', data.get('payback_time', "NULL"))
 
 
 def connectToMySQLUsingRootLogin():
@@ -95,7 +96,8 @@ def createTable(table_name):
                                                   "ttm_net_income BIGINT, "
                                                   "margin_of_safety_price FLOAT, "
                                                   "sticker_price FLOAT, "
-                                                  "current_price FLOAT)")
+                                                  "current_price FLOAT, "
+                                                  "payback_time INT)")
 
 
 def addStocksToTableFromCSVFile(table_name, csv_filename):
