@@ -4,4 +4,4 @@
 
 SELECT stocks.ticker, stocks.name, stocks.payback_time FROM isthisstockgood.stocks
 WHERE stocks.payback_time  > 0 and stocks.payback_time <= 10
-ORDER BY stocks.payback_time;
+ORDER BY stocks.payback_time, ticker;
