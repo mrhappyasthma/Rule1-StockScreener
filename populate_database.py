@@ -20,7 +20,26 @@ def setValuesForFieldRangeWithName(mycursor, table_name, ticker, field, values):
     setValueForFieldWithName(mycursor, table_name, ticker, field + '_' + suffixes[i], values[i] if values[i] else "NULL")
 
 def insertDataIntoTableForTicker(mycursor, table_name, ticker):
-  data = fetchDataForTickerSymbol(ticker)
+  success = False
+  num_try = 0
+  data = None
+  while success is False:
+    if num_try >= 3:
+      while True:
+        answer = input("Retries have failed. Would you like to continue trying? [y/n]")
+        if answer.lower() == 'y' or answer.lower() == 'yes':
+          num_try = 0
+          break
+        elif answer.lower() == 'n' or answer.lower() == 'no':
+          return
+    try:
+      data = fetchDataForTickerSymbol(ticker)
+      success = True
+    except Exception as e:
+      print(e)
+      print('Retry ' + str(num_try+1) + '...')
+      num_try += 1
+
   if not data:
     print("Error fetching data for ticker: " + ticker)
     return
