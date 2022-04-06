@@ -7,6 +7,13 @@ Any stock lists that you want to query should be CSV (comma-separated-value) fil
 
 For instance, this repository maintains a S&P 500 list in `csv/s&p.csv`.
 
+## Dependencies
+
+1. Install [python](https://www.python.org/downloads/) if it's not already on your system.
+2. Install `pandas` via `python -m pip install pandas`.
+3. Install [MySQL](https://dev.mysql.com/downloads/installer/)
+4. Remember your `root` password set during the install as it will be needed by the script. The script assumes it's also `root`. If you set a separate password, then you'll need to update the code to use that password in the `connect` call.
+
 ## Populate the mySQL database
 
 You will need to do this at least once, to initially populate the database. You may also want to run it periodically (monthly, once-per-quarter, annually, etc), depending on how fresh you want the data. (Most of the data does not change more than once per quarter or even annually, so it does not need to be refreshed too often.)
