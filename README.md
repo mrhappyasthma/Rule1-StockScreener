@@ -13,6 +13,7 @@ For instance, this repository maintains a S&P 500 list in `csv/s&p.csv`.
 2. Install `pandas` via `python -m pip install pandas`.
 3. Install [MySQL](https://dev.mysql.com/downloads/installer/)
 4. Remember your `root` password set during the install as it will be needed by the script. The script assumes it's also `root`. If you set a separate password, then you'll need to update the code to use that password in the `connect` call.
+5. Install python SQL connector via `python -m pip install mysql-connector-python`
 
 ## Populate the mySQL database
 
